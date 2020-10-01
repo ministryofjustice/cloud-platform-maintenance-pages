@@ -1,15 +1,34 @@
-# Ministry of Justice Template Repository
+# Maintenance Pages
 
-Use this template to [create a repository] with the default initial files for a Ministry of Justice Github repository, including:
+A simple sinatra app. to serve a different, static HTML page depending on the requested hostname.
 
-* The correct LICENSE
-* Github actions
-* .gitignore file
+The idea is to point domains at this webserver whenever we want to put them into maintenance mode.
 
-Once you have created your repository, please:
+## Creating a new maintenance page
 
-* Edit the copy of this README.md file to document your project
-* Grant permissions to the appropriate MoJ teams
-* Setup branch protection
+* Use `make run` to start a local instance of the maintenance pages webserver on port 4567 of your computer.
 
-[create a repository]: https://github.com/ministryofjustice/template-repository/generate
+* Checkout this repository and create a new branch for your domain
+
+* Edit `views/localhost.erb` until the maintenance page you see at `http://localhost:4567` looks like the page you want.
+
+Use the other example `views/*.erb` files as a guide.
+
+> Please do not make any changes to `views/layout.erb` unless you are very confident you're not going to break other teams' maintenance pages.
+
+* Rename `views/localhost.erb` to `views/[your domain].erb`
+
+For instance, to create a maintenance page for `https://decisions.tribunals.gov.uk/` you need to create the file `views/decisions.tribunals.gov.uk.erb`.
+
+* Git add, and commit your new file
+
+> Don't commit any changes to `views/localhost.erb` by mistake - just your newly-created `views/[your domain].erb` file
+
+Once your changes have been merged, you and the Cloud Platform team will need to carry out the following steps:
+
+* Create a new release in this repository (this will push a new image to Docker Hub)
+* Update the maintenance pages namespace to deploy this new version of the image, with your new page
+* Add a hostname to the ingress in the maintenance pages namespace so that http requests for your domain name will be handled correctly
+* Alter the DNS entries for your hostname so that traffic is directed to the Cloud Platform
+
+> If your service is already hosted on the Cloud Platform, the DNS change will be handled automatically, and adding the hostname to the ingress will only be possible if it is also removed from the ingress in your namespace at the same time - two different namespaces in the Cloud Platform cannot both handle traffic for the same hostname.
