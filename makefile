@@ -15,4 +15,7 @@ IMAGE := foo
 	touch .built
 
 run: .built
-	docker run --rm -p 4567:4567 $(IMAGE)
+	docker run --rm \
+		-p 4567:4567 \
+		-v $$(pwd)/views:/app/views \
+		$(IMAGE)
