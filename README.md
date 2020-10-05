@@ -1,5 +1,7 @@
 # Maintenance Pages
 
+[![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-maintenance-pages/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-maintenance-pages/releases)
+
 A simple sinatra app. to serve a different, static HTML page depending on the requested hostname.
 
 The idea is to point domains at this webserver whenever we want to put them into maintenance mode.
