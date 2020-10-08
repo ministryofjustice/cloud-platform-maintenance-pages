@@ -30,12 +30,29 @@ Once your changes have been merged, you and the Cloud Platform team will need to
 
 * Create a new release in this repository (this will push a new image to Docker Hub)
 * Update the maintenance pages [deployment] to use this new version of the image, with your new page
-* Add a host to the [ingress] in the maintenance pages namespace so that http requests for your domain name will be handled correctly
-* Add an entry in the [certificate file] so that a certificate for your domain will be generated
-* Alter the DNS entries for your hostname so that traffic is directed to the Cloud Platform
 
-> If your service is already hosted on the Cloud Platform, the DNS change will be handled automatically, and adding the hostname to the ingress will only be possible if it is also removed from the ingress in your namespace at the same time - two different namespaces in the Cloud Platform cannot both handle traffic for the same hostname.
+## DNS change
+
+> If your service is already hosted on the Cloud Platform, the DNS change will be handled automatically, and adding the hostname to the ingress will only be possible if it is also removed from the ingress in your namespace at the same time - two different namespaces in the Cloud Platform cannot both handle traffic for the same hostname. 
+
+
+* Add your host to the list of domains in the [variable.tf] in the maintenance pages namespace. Doing so will create a new Route53 zone in the Cloud Platform account.
+* Add a rule to the [ingress], following that example : 
+    ```
+        - host: example.gov.uk  #The only change
+        http:
+        paths:
+        - path: /
+            backend:
+            serviceName: maintenance-pages-service
+            servicePort: 4567
+    ```
+* Add an entry in the [certificate file] so that a certificate for your domain will be generated
+* Contact the Cloud Platform when you are ready to point your domain to the Cloud Platform's maintenance page.
+
 
 [certificate file]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/certificate.yaml
 [deployment]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/deployment.yaml
+[variable.tf]: https://github.com/ministryofjustice/cloud-platform-environments/blob/7d71fb559e6f88be327a753112d140ac26bbb58a/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/resources/variables.tf#L75
 [ingress]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/ingress.yaml
+
