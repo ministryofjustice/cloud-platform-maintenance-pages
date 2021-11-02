@@ -51,8 +51,8 @@ Once your changes have been merged, you and the Cloud Platform team will need to
 * Contact the Cloud Platform when you are ready to point your domain to the Cloud Platform's maintenance page.
 
 
-[certificate file]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/certificate.yaml
-[deployment]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/deployment.yaml
-[variable.tf]: https://github.com/ministryofjustice/cloud-platform-environments/blob/7d71fb559e6f88be327a753112d140ac26bbb58a/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/resources/variables.tf#L75
-[ingress]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live-1.cloud-platform.service.justice.gov.uk/maintenance-pages/ingress.yaml
+[certificate file]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live.cloud-platform.service.justice.gov.uk/maintenance-pages/certificate.yaml
+[deployment]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live.cloud-platform.service.justice.gov.uk/maintenance-pages/deployment.yaml
+[variable.tf]: https://github.com/ministryofjustice/cloud-platform-environments/blob/7d71fb559e6f88be327a753112d140ac26bbb58a/namespaces/live.cloud-platform.service.justice.gov.uk/maintenance-pages/resources/variables.tf#L75
+[ingress]: https://github.com/ministryofjustice/cloud-platform-environments/blob/main/namespaces/live.cloud-platform.service.justice.gov.uk/maintenance-pages/ingress.yaml
 

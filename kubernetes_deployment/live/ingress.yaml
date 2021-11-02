@@ -14,7 +14,7 @@ spec:
     - "*.venues.tribunals.gov.uk"
     secretName: domains-secret
   rules:
-  - host: maintenance-pages-demo.apps.live-1.cloud-platform.service.justice.gov.uk
+  - host: maintenance-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
     http:
       paths:
       - path: /
