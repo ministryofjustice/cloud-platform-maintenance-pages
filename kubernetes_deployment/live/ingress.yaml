@@ -28,6 +28,14 @@ spec:
         backend:
           serviceName: maintenance-pages-service
           servicePort: 4567
+  - host: nomisqc.justice.gov.uk
+    http:
+      paths:
+      - backend:
+          serviceName: maintenance-pages-service
+          servicePort: 4567
+        path: /
+        pathType: ImplementationSpecific
   - host: decommission-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
     http:
       paths:
