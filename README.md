@@ -54,13 +54,7 @@ Once your changes have been merged, a pipeline will automatically deploy the new
     ```
 * Add an entry in the [certificate file] so that a certificate for your domain will be generated
 
-At this point wherever the DNS is managed must change the DNS record for your domain to be a NS record pointing at the Cloud Platform nameservers, at time of writing they are below, please contact the Cloud Platform if these do not work for you.  
->
-> `ns-1849.awsdns-39.co.uk.`  
-> `ns-486.awsdns-60.com.`  
-> `ns-960.awsdns-56.net.`  
-> `ns-1464.awsdns-55.org.`  
-
+At this point wherever the DNS is managed must change the DNS record for your domain to be a NS record pointing at the Cloud Platform zone nameservers, please contact the Cloud Platform for these.
 
 If you are not sure where the DNS is managed, please contact the Operations Engineering team for help (#ask-operations-engineering)
 
