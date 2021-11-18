@@ -46,7 +46,6 @@ spec:
           servicePort: 4567
         path: /
         pathType: ImplementationSpecific
-                pathType: ImplementationSpecific
   - host: civil-eligibility-calculator.justice.gov.uk
     http:
       paths:
