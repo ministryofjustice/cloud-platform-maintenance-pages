@@ -36,7 +36,7 @@ Once your changes have been merged, a pipeline will automatically deploy the new
 
 ## DNS change
 
-> This process has relevant ticket types in GitHub/ZenHub that can be created using the New Issue button. It is highly recommended to create a ticket and follow
+> This process has relevant ticket types in operations-engineering GitHub/ZenHub that can be created using the New Issue button. It is highly recommended to create a ticket and follow
 any new changes through the ticket as it has checklists to follow progress.
 
 > If your service is already hosted on the Cloud Platform, the DNS change will be handled automatically, all you need to do is remove the ingress from your current namespace (this must happen first) and add it here as described in the 2nd step below.
