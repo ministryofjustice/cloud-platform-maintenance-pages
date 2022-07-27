@@ -1,5 +1,5 @@
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: domains-ingress
@@ -7,50 +7,63 @@ metadata:
     external-dns.alpha.kubernetes.io/set-identifier: domains-ingress-maintenance-pages-green
     external-dns.alpha.kubernetes.io/aws-weight: "100"
 spec:
+  ingressClassName: default
   tls:
-  - hosts:
-    - "*.decisions.tribunals.gov.uk"
-    - "*.reports.tribunals.gov.uk"
-    - "*.venues.tribunals.gov.uk"
-    - "nomisqc.justice.gov.uk"
-    - "civil-eligibility-calculator.justice.gov.uk"
-    secretName: domains-secret
+    - hosts:
+        - "*.decisions.tribunals.gov.uk"
+        - "*.reports.tribunals.gov.uk"
+        - "*.venues.tribunals.gov.uk"
+        - "nomisqc.justice.gov.uk"
+        - "civil-eligibility-calculator.justice.gov.uk"
+      secretName: domains-secret
   rules:
-  - host: maintenance-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: maintenance-pages-service
-          servicePort: 4567
-  - host: maintenance-page.cloud-platform.service.justice.gov.uk
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: maintenance-pages-service
-          servicePort: 4567
-  - host: nomisqc.justice.gov.uk
-    http:
-      paths:
-      - backend:
-          serviceName: maintenance-pages-service
-          servicePort: 4567
-        path: /
-        pathType: ImplementationSpecific
-  - host: decommission-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
-    http:
-      paths:
-      - backend:
-          serviceName: maintenance-pages-service
-          servicePort: 4567
-        path: /
-        pathType: ImplementationSpecific
-  - host: civil-eligibility-calculator.justice.gov.uk
-    http:
-      paths:
-      - backend:
-          serviceName: maintenance-pages-service
-          servicePort: 4567
-        path: /
-        pathType: ImplementationSpecific
+    - host: maintenance-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
+      http:
+        paths:
+          - backend:
+              service:
+                name: maintenance-pages-service
+                port:
+                  number: 4567
+            path: /
+            pathType: ImplementationSpecific
+    - host: maintenance-page.cloud-platform.service.justice.gov.uk
+      http:
+        paths:
+          - backend:
+              service:
+                name: maintenance-pages-service
+                port:
+                  number: 4567
+            path: /
+            pathType: ImplementationSpecific
+    - host: nomisqc.justice.gov.uk
+      http:
+        paths:
+          - backend:
+              service:
+                name: maintenance-pages-service
+                port:
+                  number: 4567
+            path: /
+            pathType: ImplementationSpecific
+    - host: decommission-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
+      http:
+        paths:
+          - backend:
+              service:
+                name: maintenance-pages-service
+                port:
+                  number: 4567
+            path: /
+            pathType: ImplementationSpecific
+    - host: civil-eligibility-calculator.justice.gov.uk
+      http:
+        paths:
+          - backend:
+              service:
+                name: maintenance-pages-service
+                port:
+                  number: 4567
+            path: /
+            pathType: ImplementationSpecific
