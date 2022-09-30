@@ -1,6 +1,6 @@
 # Maintenance and Decommission Pages
 
-[![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-maintenance-pages/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-maintenance-pages/releases) [![repo standards badge](https://img.shields.io/badge/dynamic/json?color=blue&flat-square&logo=github&label=MoJ%20Compliant&query=%24.data%5B%3F%28%40.name%20%3D%3D%20%22cloud-platform-maintenance-pages%22%29%5D.status&url=https%3A%2F%2Foperations-engineering-reports.cloud-platform.service.justice.gov.uk%2Fgithub_repositories)](https://operations-engineering-reports.cloud-platform.service.justice.gov.uk/github_repositories#cloud-platform-maintenance-pages "Link to report")
+[![Releases](https://img.shields.io/github/release/ministryofjustice/cloud-platform-maintenance-pages/all.svg?style=flat-square)](https://github.com/ministryofjustice/cloud-platform-maintenance-pages/releases) [![repo standards badge](https://img.shields.io/badge/dynamic/json?color=blue&flat-square&logo=github&label=MoJ%20Compliant&query=%24.result&url=https%3A%2F%2Foperations-engineering-reports.cloud-platform.service.justice.gov.uk%2Fapi%2Fv1%2Fcompliant_public_repositories%2Fcloud-platform-maintenance-pages)](https://operations-engineering-reports.cloud-platform.service.justice.gov.uk/public-github-repositories.html#cloud-platform-maintenance-pages "Link to report")
 
 A simple sinatra app. to serve a different, static HTML page depending on the requested hostname.
 
