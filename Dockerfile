@@ -1,4 +1,4 @@
-FROM ruby:3.1.1-alpine3.15
+FROM ruby:3.1.3-alpine3.15
 
 RUN addgroup -g 1000 -S appgroup \
   && adduser -u 1000 -S appuser -G appgroup \
