@@ -9,8 +9,6 @@ on:
 env:
   KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
   KUBE_NAMESPACE: ${{ secrets.KUBE_NAMESPACE }}
-  ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-  ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
 
   IMAGE_TAG: ${{ github.sha }}
 
@@ -34,9 +32,12 @@ jobs:
       - run: |
           docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG} .
           docker push ${ECR_REGISTRY}/${ECR_REPOSITORY}:${IMAGE_TAG}
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}
 
       - name: Update image tag
-        run: export IMAGE_TAG=${{ github.sha }} && cat kubernetes_deployment/live/deployment.tpl | envsubst > kubernetes_deployment/live/deployment.yaml
+        run: cat kubernetes_deployment/live/deployment.tpl | envsubst > kubernetes_deployment/live/deployment.yaml
 
       - name: Authenticate to the cluster
         env:
