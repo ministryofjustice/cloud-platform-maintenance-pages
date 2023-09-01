@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - "add-ecr-role"
+      - "main"
 
 env:
   KUBE_CLUSTER: ${{ secrets.KUBE_CLUSTER }}
