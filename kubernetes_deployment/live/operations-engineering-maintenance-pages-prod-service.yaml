@@ -6,8 +6,8 @@ metadata:
     app: maintenance-pages-service
 spec:
   ports:
-  - port: 4567
-    name: http
-    targetPort: 4567
+    - port: 4567
+      name: http
+      targetPort: 4567
   selector:
     app: maintenance-pages-app
