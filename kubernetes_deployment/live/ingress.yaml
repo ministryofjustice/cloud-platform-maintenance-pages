@@ -10,9 +10,6 @@ spec:
   ingressClassName: default
   tls:
     - hosts:
-        - "*.decisions.tribunals.gov.uk"
-        - "*.reports.tribunals.gov.uk"
-        - "*.venues.tribunals.gov.uk"
         - "nomisqc.justice.gov.uk"
         - "civil-eligibility-calculator.justice.gov.uk"
       secretName: domains-secret
