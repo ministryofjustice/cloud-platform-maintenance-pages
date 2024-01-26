@@ -12,6 +12,7 @@ spec:
     - hosts:
         - "nomisqc.justice.gov.uk"
         - "civil-eligibility-calculator.justice.gov.uk"
+        - "operations-engineering.service.justice.gov.uk"
       secretName: domains-secret
   rules:
     - host: maintenance-pages-demo.apps.live.cloud-platform.service.justice.gov.uk
@@ -55,6 +56,16 @@ spec:
             path: /
             pathType: ImplementationSpecific
     - host: civil-eligibility-calculator.justice.gov.uk
+      http:
+        paths:
+          - backend:
+              service:
+                name: maintenance-pages-service
+                port:
+                  number: 4567
+            path: /
+            pathType: ImplementationSpecific
+    - host: operations-engineering.service.justice.gov.uk
       http:
         paths:
           - backend:
