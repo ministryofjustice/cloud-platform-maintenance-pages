@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: sinatra-app
-          image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/${ECR_NAME}:${IMAGE_TAG}
+          image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/${ECR_REPOSITORY}:${IMAGE_TAG}
           ports:
           - containerPort: 4567
