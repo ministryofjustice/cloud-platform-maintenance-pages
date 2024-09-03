@@ -4,7 +4,7 @@ RUN addgroup -g 1000 -S appgroup \
   && adduser -u 1000 -S appuser -G appgroup \
   && apk update \
   && apk upgrade \
-  && gem install bundler \
+  && gem install bundler -v "2.5.18" \
   && bundle config set without 'development'
 
 WORKDIR /app
